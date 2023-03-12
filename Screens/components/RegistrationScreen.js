@@ -76,9 +76,20 @@ export default function RegistrationScreen() {
           >
             <View style={styles.form}>
               <View style={styles.photoBox}>
+                {isShowKeyboard && (
+                  <Image source={require("../../assets/images/photo.png")} />
+                )}
                 <Image
-                  style={styles.iconImage}
-                  source={require("../../assets/images/add.png")}
+                  style={{
+                    ...styles.iconImage,
+                    right: isShowKeyboard ? -18 : -12,
+                    bottom: isShowKeyboard ? 8 : 14,
+                  }}
+                  source={
+                    isShowKeyboard
+                      ? require("../../assets/images/add_grey.png")
+                      : require("../../assets/images/add.png")
+                  }
                 />
               </View>
               <Text style={styles.titleText}>Registration</Text>
@@ -188,10 +199,10 @@ const styles = StyleSheet.create({
   },
   iconImage: {
     position: "absolute",
-    height: 25,
-    width: 25,
-    bottom: 14,
-    right: -12,
+    //height: 25,
+    //width: 25,
+    //bottom: 14,
+    //right: -12,
   },
   titleText: {
     fontFamily: "robotoMedium",
